@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import login from './pages/login'
+import Login from './pages/Login.jsx'
+//import './App.css'
+
 
 function App() {
-  return 
-  <login />
+  return (
+      <Login />
+  )
 }
 
 export default App
