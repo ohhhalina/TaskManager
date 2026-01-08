@@ -1,6 +1,6 @@
 import Login from "./pages/Login"
 import {Routes, Route, Navigate, Outlet, useLocation, replace} from 'react-router-dom'
-import Toaster from "sonner"
+import {Toaster} from "sonner"
 import TaskDetails from "./pages/TaskDetails"
 import Tasks from "./pages/Tasks"
 import Trash from "./pages/Trash"
