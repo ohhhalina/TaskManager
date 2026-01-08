@@ -23,8 +23,8 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-box-shadow: 4px -40px 60px 5px rgba(110, 231, 183, 0.4) inset; /* #6ee7b7 */
+background: rgba(240, 253, 244, 0.95); /* #f0fdf4 - легкий мятный */
+box-shadow: 4px -40px 60px 5px rgba(22, 101, 52, 0.35) inset;
 }
 
 .rotate-in-up-left {
