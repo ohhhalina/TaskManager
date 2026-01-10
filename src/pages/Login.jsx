@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import { Textbox } from '../components'
+import Textbox from '../components/Textbox'
+import Button from '../components/Button'
+import { useSelector } from 'react-redux';
 
 const Login = () => {
-  const user = "";
+  const {user} = useSelector((state) => state.auth)
   const {
     register, 
     handleSubmit, 
@@ -81,7 +83,19 @@ useEffect(() => {
     register={register("password", {
       required: "Password Address is required!",
     })}
-    error={errors.password ? errors.password.message : " "}
+    error={errors.password ? errors.password.message : 
+      " "}
+    />
+
+    <span className='text-sm text-gray-500
+    hover:text-blue-600 hover:underline cursor-pointer'>
+      Forget Password?
+    </span>
+
+    <Button
+    type='submit'
+    label='Submit'
+    className='w-full h-10 bg-blue-700 text-white rounded-full'
     />
     </div>
     </form>
