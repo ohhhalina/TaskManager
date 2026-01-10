@@ -47,16 +47,41 @@ useEffect(() => {
     <form onSubmit={handleSubmit(submitHandler)}
     className='form-container w-full md:w-[400px] flex
     flex-col gap-y-8 bg-white px-10 pt-14 pb-14'
-    >
+  >
       <div className=''>
         <p className='text-blue-600 text-3xl font-bold
         text-center'>
           Welcome back!
         </p>
-        <span>
-          Keep all your
-        </span>
+        <p className='text-center text-base text-gray-700'>
+          Keep all your credential safge
+        </p>
       </div>
+
+    <div className='flex flex-col gap-y-5'>
+    <Textbox 
+    placeholder='email@example.com'
+    type='email'
+    name='email'
+    label='Email Address'
+    className='w-full rounded-full'
+    register={register("email", {
+      required: "Email Address is required!",
+    })}
+    error={errors.email ? errors.email.message : " "}
+    />
+    <Textbox 
+    placeholder='your password'
+    type='password'
+    name='password'
+    label='Password'
+    className='w-full rounded-full'
+    register={register("password", {
+      required: "Password Address is required!",
+    })}
+    error={errors.password ? errors.password.message : " "}
+    />
+    </div>
     </form>
   </div>
     </div>
