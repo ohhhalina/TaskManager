@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
+import { Textbox } from '../components'
 
 const Login = () => {
   const user = "";
@@ -44,7 +45,8 @@ useEffect(() => {
   {/* right side */}
   <div className='w-full md:w-1/3 p-4 md:p-1 flex flex-col
   justify-center items-center'>
-    <form onSubmit={handleSubmit(submitHandler)}
+    <form 
+    onSubmit={handleSubmit(submitHandler)}
     className='form-container w-full md:w-[400px] flex
     flex-col gap-y-8 bg-white px-10 pt-14 pb-14'
   >
