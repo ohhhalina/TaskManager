@@ -1,12 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
 import Login from "./pages/Login"
-import {Routes, Route, Navigate, Outlet, useLocation, replace} from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes, useLocation, replace } from "react-router-dom";
 import {Toaster} from "sonner"
 import TaskDetails from "./pages/TaskDetails"
 import Tasks from "./pages/Tasks"
 import Trash from "./pages/Trash"
-import Users from "./pages/Trash"
+import Users from "./pages/Users"
 import Dashboard from "./pages/Dashboard"
-import { useSelector } from "react-redux"
 
 function Layout () {
   const {user} = useSelector((state) => state.auth)
@@ -16,7 +16,7 @@ function Layout () {
   return user ? (
     <div className="w-full h-screen flex flex-col md:flex-row">
       <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
-        <Sidebar/>
+        <Sidebar />
       </div>
         {/* <MobileSidebar/> */}
 
@@ -37,8 +37,8 @@ function App() {
   return (
      <main className='w-full main-h-screen bg-[#f3f4f6]'>
       <Routes>
-      <Route element={<Layout/>}>
-        <Route index path="/" element={<Navigate to="dashboard"/>}/>
+      <Route element={<Layout />}>
+        <Route index path="/" element={<Navigate to="/dashboard"/>}/>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/completed/:status" element={<Tasks />} />
@@ -49,7 +49,7 @@ function App() {
         <Route path="/task/:id" element={<TaskDetails />} />
       </Route>
 
-      <Route path="/log-in" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
 
       <Toaster richColors />
