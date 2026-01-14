@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaTasks, FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaTasks, FaTrashAlt, FaUsers } from "react-icons/fa"
 import {
   MdDashboard,
   MdOutlineAddTask,
@@ -7,9 +7,10 @@ import {
   MdSettings,
   MdTaskAlt,
 } from "react-icons/md";
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { setOpenSidebar } from '../redux/slices/authSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import { setOpenSidebar } from '../redux/slices/authSlice'
+import { IoCheckmarkDoneOutline } from "react-icons/io5"
 
 const linkData = [
   {

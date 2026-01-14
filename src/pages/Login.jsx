@@ -55,7 +55,7 @@ useEffect(() => {
       <div className=''>
         <p className='text-blue-600 text-3xl font-bold
         text-center'>
-          Welcome back!
+          Добро пожаловать!
         </p>
         <p className='text-center text-base text-gray-700'>
           Keep all your credential safge

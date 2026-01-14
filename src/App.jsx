@@ -1,13 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux"
+import {useSelector} from "react-redux"
 import Login from "./pages/Login"
-import { Navigate, Outlet, Route, Routes, useLocation, replace } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useLocation, replace } from "react-router-dom"
 import {Toaster} from "sonner"
 import TaskDetails from "./pages/TaskDetails"
 import Tasks from "./pages/Tasks"
 import Trash from "./pages/Trash"
 import Users from "./pages/Users"
 import Dashboard from "./pages/Dashboard"
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar"
 
 function Layout () {
   const {user} = useSelector((state) => state.auth)
@@ -50,7 +51,7 @@ function App() {
         <Route path="/task/:id" element={<TaskDetails />} />
       </Route>
 
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/log-in" element={<Login />} />
       </Routes>
 
       <Toaster richColors />
