@@ -37,10 +37,11 @@ function Layout () {
 function App() {
 
   return (
-     <main className='w-full main-h-screen bg-[#f3f4f6]'>
+     <main className='w-full min-h-screen bg-[#f3f4f6]'>
       <Routes>
       <Route element={<Layout />}>
-        <Route index path="/" element={<Navigate to="/dashboard"/>}/>
+        <Route index element={<Navigate to="/dashboard" replace/>}/>
+        {/* закоментила path="/" */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/completed/:status" element={<Tasks />} />
