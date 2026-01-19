@@ -1,3 +1,4 @@
+import { Transition } from "@headlessui/react"
 import { useDispatch } from "react-redux"
 import {useSelector} from "react-redux"
 import Login from "./pages/Login"
@@ -11,7 +12,9 @@ import Dashboard from "./pages/Dashboard"
 import Sidebar from "./components/Sidebar"
 import Navbar from "./components/Navbar"
 import { setOpenSidebar } from "./redux/slices/authSlice"
-
+import clsx from "clsx"
+import { Fragment, useRef } from "react"
+import { IoClose } from "react-icons/io5"
 
 function Layout () {
   const {user} = useSelector((state) => state.auth)
@@ -23,7 +26,7 @@ function Layout () {
       <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
         <Sidebar />
       </div>
-        {/* <MobileSidebar/> */}
+        <MobileSidebar/>
 
         <div className="flex-1 overflow-y-auto">
           <Navbar />
@@ -57,7 +60,31 @@ return <>
         leave='transition-opacity duration-700'
         leaveFrom='opacity-x-100'
         leaveTo='opacity-x-0'
-      ></Transition>
+      >
+        {(ref)=> (<div ref={(node)=> (mobileMenuRef.current = node)}
+        className={clsx("md:hidden w-full h-full bg-black/40 transition-all duration-700 transform",
+          isSidebarOpen ? "translate-x-0" : "translate-x-full"
+        )}
+        onClick={()=> closeSidebar()}
+        >
+
+        <div className="bg-white w-3/4 h-full">
+<div className="w-full flex justify-end px-5 mt-5">
+  <button
+    onClick={() => closeSidebar()}
+    className='flex justify-end items-end'
+    >
+    <IoClose size={25} />
+  </button>
+</div>
+
+<div className="-mt-10">
+<Sidebar />
+</div>
+        </div>
+        </div>
+      )}
+      </Transition>
 </>
 }
 function App() {
