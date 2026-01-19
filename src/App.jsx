@@ -9,6 +9,9 @@ import Trash from "./pages/Trash"
 import Users from "./pages/Users"
 import Dashboard from "./pages/Dashboard"
 import Sidebar from "./components/Sidebar"
+import Navbar from "./components/Navbar"
+import { setOpenSidebar } from "./redux/slices/authSlice"
+
 
 function Layout () {
   const {user} = useSelector((state) => state.auth)
@@ -23,7 +26,7 @@ function Layout () {
         {/* <MobileSidebar/> */}
 
         <div className="flex-1 overflow-y-auto">
-          {/* <Navbar/> */}
+          <Navbar />
 
           <div className="p-4 2xl:px-10">
             <Outlet />
@@ -33,6 +36,29 @@ function Layout () {
   ): (
     <Navigate to="/log-in" state={{from: location}} replace/>
   )
+}
+
+const MobileSidebar = () => {
+  const { isSidebarOpen } = useSelector((state) => state.auth);
+  const mobileMenuRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const closeSidebar = () => {
+    dispatch(setOpenSidebar(false));
+}
+
+return <>
+      <Transition
+        show={isSidebarOpen}
+        as={Fragment}
+        enter='transition-opacity duration-700'
+        enterFrom='opacity-x-10'
+        enterTo='opacity-x-100'
+        leave='transition-opacity duration-700'
+        leaveFrom='opacity-x-100'
+        leaveTo='opacity-x-0'
+      ></Transition>
+</>
 }
 function App() {
 
