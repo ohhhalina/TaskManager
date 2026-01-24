@@ -1,13 +1,13 @@
-import React, { useState, Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react' // Только Popover
-import moment from 'moment'
-import { HiBellAlert } from 'react-icons/hi2'
-import { IoIosNotificationsOutline } from "react-icons/io"
-import { HiChatAlt2 } from 'react-icons/hi'
-import { HiChatBubbleBottomCenterText } from 'react-icons/hi2'
+import { Popover, Transition } from "@headlessui/react";
+import moment from "moment";
+import { Fragment, useState } from "react";
+import { BiSolidMessageRounded } from "react-icons/bi";
+import { HiBellAlert } from "react-icons/hi2";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const data = [
-    {
+  {
     _id: "65c5bbf3787832cf99f28e6d",
     team: [
       "65c202d4aa62f32ffd1303cc",
@@ -39,27 +39,28 @@ const data = [
     createdAt: "2024-02-09T09:32:26.810Z",
     updatedAt: "2024-02-09T09:32:26.810Z",
     __v: 0,
-  }
-]
+  },
+];
 const ICONS = {
-    alert : (
-        <HiBellAlert className='h-5 w-5 text-gray-600 group-hover:text-indigo-600' />
-    ), 
-    message : (
-        <HiChatBubbleBottomCenterText className='h-5 w-5 text-gray-600 group-hover:text-indigo-600' />
-    )
-}
+  alert: (
+    <HiBellAlert className='h-5 w-5 text-gray-600 group-hover:text-indigo-600' />
+  ),
+  message: (
+    <BiSolidMessageRounded className='h-5 w-5 text-gray-600 group-hover:text-indigo-600' />
+  ),
+};
 
 const NotificationPanel = () => {
-    const [open, setOpen] = useState(false)
-    const [selected, setSelected] = useState(null)
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
 
-    // const {data, refetch} = useGetNotificationsQuery()
-    // const [markAsRead] = useMarkNotiAsReadMutation()
+  //  const { data, refetch } = useGetNotificationsQuery();
+  //  const [markAsRead] = useMarkNotiAsReadMutation();
 
-    const readHandler = () => {}
+  const readHandler = () => {};
+  const viewHandler = () => {};
 
-    const callsToAction = [
+  const callsToAction = [
     { name: "Cancel", href: "#", icon: "" },
     {
       name: "Mark All Read",
@@ -69,10 +70,11 @@ const NotificationPanel = () => {
     },
   ];
 
-    return <>
-        <Popover className='relative'>
-  <Popover.Button className='inline-flex items-center outline-none'>
-          <div className='w-8 h-8 flex items-center justify-center text-gray-800  relative'>
+  return (
+    <>
+      <Popover className='relative'>
+        <Popover.Button className='inline-flex items-center outline-none'>
+          <div className='w-8 h-8 flex items-center justify-center text-gray-800 relative'>
             <IoIosNotificationsOutline className='text-2xl' />
             {data?.length > 0 && (
               <span className='absolute text-center top-0 right-1 text-sm text-white font-semibold w-4 h-4 rounded-full bg-red-600'>
@@ -141,8 +143,9 @@ const NotificationPanel = () => {
             }
           </Popover.Panel>
         </Transition>
-        </Popover>
-        </>
-}
+      </Popover>
+    </>
+  );
+};
 
-export default NotificationPanel
+export default NotificationPanel;
